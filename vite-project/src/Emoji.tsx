@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Emoji.css";
-
+import Vida from './Vida.tsx';
 const EMOJIS = new Map <string,string>(
     [
         ["happy", "🙂"],
@@ -63,6 +63,12 @@ export default function Emoji(){
     return(
         <div className="emoji">
         <div className="situacao">{EMOJIS.get(situacao) || "🫥"}</div>
+        <div className="vida">
+            <Vida icone="🩷"/>
+            <Vida icone="⚡"/>
+            <Vida icone="🍗"/>
+            <Vida icone="💧"/>
+        </div>
         <div className="acoes">
             <button onClick={toHappy}>Vivo</button>
             <button onClick={toSick}>Sick</button>

@@ -5,7 +5,7 @@ type VidaProps = {
     icone: string;
 };
 
-export default function Vida(){
+export default function Vida({icone}: VidaProps){
 
     const [valor, setvalor] = useState(3);
 
@@ -18,11 +18,13 @@ export default function Vida(){
         }
     }
     return (
-        <>
         <div className="Vida">
             <span>{icone.repeat(valor)}</span>
+            <span className='inativo'>{icone.repeat(5-valor)}</span>
+            <button onClick={onMaisClick}>+</button>
+            </div>
 
-    )
+    );
 
 }
 
