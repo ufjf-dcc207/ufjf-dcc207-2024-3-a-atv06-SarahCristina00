@@ -1,4 +1,7 @@
 .emoji{
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     .situacao{
         font-size: 4em;
     }

@@ -10,6 +10,11 @@ const EMOJIS = new Map <string,string>(
     ]
 );
 
+
+
+
+
+
 export default function Emoji(){
      const[situacao, setSituacao] = useState("happy");
 
@@ -18,6 +23,7 @@ export default function Emoji(){
         setSituacao("happy");
         console.log(`toHappy()!" ${situacao}`);
     }
+
 
     function toDead(){
         console.log("toDead()!");
@@ -35,7 +41,7 @@ export default function Emoji(){
     }
 
     function cicle(){
-        console.log("cicle()!");
+        console.log("troca()!");
         switch(situacao){
             case "happy":
                 setSituacao("sick");
@@ -53,6 +59,7 @@ export default function Emoji(){
                 setSituacao("happy");
         }
     }
+    
     return(
         <div className="emoji">
         <div className="situacao">{EMOJIS.get(situacao) || "🫥"}</div>
@@ -61,7 +68,7 @@ export default function Emoji(){
             <button onClick={toSick}>Sick</button>
             <button onClick={toDead}>morto</button>
             <button onClick={toSad}>Sad</button>
-            <button onClick={cicle}>cicle</button>
+            <button onClick={cicle}>troca</button>
         </div>
         </div>
     )       

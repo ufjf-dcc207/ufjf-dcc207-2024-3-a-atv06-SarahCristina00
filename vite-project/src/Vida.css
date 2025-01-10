@@ -1,0 +1,9 @@
+.Vida{
+
+    border: 1px solid;
+}
+
+.inativo{
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
