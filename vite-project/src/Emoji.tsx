@@ -71,9 +71,9 @@ export default function Emoji(){
         </div>
         <div className="acoes">
             <button onClick={toHappy}>Vivo</button>
-            <button onClick={toSick}>Sick</button>
+            <button onClick={toSick}>Doente</button>
             <button onClick={toDead}>morto</button>
-            <button onClick={toSad}>Sad</button>
+            <button onClick={toSad}>Triste</button>
             <button onClick={cicle}>troca</button>
         </div>
         </div>
