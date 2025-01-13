@@ -16,66 +16,45 @@ const EMOJIS = new Map <string,string>(
 
 
 export default function Emoji(){
-     const[situacao, setSituacao] = useState("happy");
+     const[situacao, setSituacao] = useState("daddy");
+     const[saude, setSaude] = useState(4);
+     const[energia, setEnergia] = useState(3);
+     const[comida, setComida] = useState(2);
+     const[agua, setAgua] = useState(1);
 
-    function toHappy(){
-        console.log(`toHappy()!" ${situacao}`);
-        setSituacao("happy");
-        console.log(`toHappy()!" ${situacao}`);
+    function onAlimentar(){
+        setComida(comida === 5 ? comida: comida +1);
     }
 
 
-    function toDead(){
-        console.log("toDead()!");
-        setSituacao("dead");
+    function onHidratar(){
+        setAgua(agua === 5 ? agua : agua +1);
     }
 
-    function toSick(){
-        console.log("toSick()!");
-        setSituacao("sick");
+    function onLigaDesligaLuz(){
+        
     }
 
-    function toSad(){
-        console.log("toSick()!");
-        setSituacao("sad");
+    function onCiclo(){
+        
     }
-
-    function cicle(){
-        console.log("troca()!");
-        switch(situacao){
-            case "happy":
-                setSituacao("sick");
-                break;
-            case "sick":
-                setSituacao("dead");
-                break;
-            case "dead":
-                setSituacao("sad")
-                break;
-            case "sad":
-                setSituacao("happy");
-                break;
-            default:
-                setSituacao("happy");
-        }
-    }
+    
     
     return(
         <div className="emoji">
         <div className="situacao">{EMOJIS.get(situacao) || "🫥"}</div>
         <div className="vida">
-            <Vida icone="🩷"/>
-            <Vida icone="⚡"/>
-            <Vida icone="🍗"/>
-            <Vida icone="💧"/>
+            <Vida icone="🩷" valor={saude}/>
+            <Vida icone="⚡"  valor={energia}/>
+            <Vida icone="🍗" valor={comida}/>
+            <Vida icone="💧" valor={agua}/>
         </div>
         <div className="acoes">
-            <button onClick={toHappy}>Vivo</button>
-            <button onClick={toSick}>Doente</button>
-            <button onClick={toDead}>morto</button>
-            <button onClick={toSad}>Triste</button>
-            <button onClick={cicle}>troca</button>
+            <button onClick={onAlimentar}>Dar Comida</button>
+            <button onClick={onHidratar}>Dar àgua</button>
+            <button onClick={onLigaDesligaLuz}>Ligar/Desligar a Luz</button>
+            <button onClick={onCiclo}>Ciclo</button>
         </div>
         </div>
-    )       
+    );      
 }
