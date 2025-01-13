@@ -21,6 +21,7 @@ export default function Emoji(){
      const[energia, setEnergia] = useState(3);
      const[comida, setComida] = useState(2);
      const[agua, setAgua] = useState(1);
+     const [luz, setLuz] = useState(true);
 
     function onAlimentar(){
         setComida(Math.min(comida + 1,5));
@@ -32,13 +33,20 @@ export default function Emoji(){
     }
 
     function onLigaDesligaLuz(){
+       setLuz(!luz);
         
     }
 
     function onCiclo(){
         setComida(Math.max(0,comida-1));
         setAgua(Math.max(0,agua-1));
-        setEnergia(Math.max(0,energia-1));
+        if(luz){
+            
+            setEnergia(Math.max(0,energia-1));
+        }
+        else{
+            setEnergia(Math.min(5, energia+1));
+        }
         if(comida === 0){
             setSaude(prevSaude=>Math.max(0, prevSaude-1));
         }
@@ -63,7 +71,9 @@ export default function Emoji(){
         <div className="acoes">
             <button onClick={onAlimentar}>Dar Comida</button>
             <button onClick={onHidratar}>Dar àgua</button>
-            <button onClick={onLigaDesligaLuz}>Ligar/Desligar a Luz</button>
+            <button onClick={onLigaDesligaLuz}>
+                <span style={{filter: luz?"": "grayscale(100%)"}}>💡</span>
+                {luz? "Apagar" : "Acender"} a Luz</button>
             <button onClick={onCiclo}>Ciclo</button>
         </div>
         </div>
