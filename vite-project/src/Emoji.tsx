@@ -64,6 +64,7 @@ export default function Emoji() {
     if (saude === 0) {
       console.log("ToDead()!");
       setSituacao("dead");
+      return;
     }
   }
 
